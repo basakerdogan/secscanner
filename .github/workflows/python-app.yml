@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -23,4 +22,5 @@ jobs:
 
     - name: Run SecScanner
       run: |
+        echo SHODAN_API_KEY=${{ secrets.SHODAN_API_KEY }} > .env
         python secscanner.py
