@@ -22,7 +22,7 @@ jobs:
 
     - name: Set up environment
       run: |
-        echo SHODAN_API_KEY=${{ secrets.SHODAN_API_KEY }} > .env
+        echo "SHODAN_API_KEY=${{ secrets.SHODAN_API_KEY }}" >> .env
 
     - name: Run SecScanner
       run: |
