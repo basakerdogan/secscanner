@@ -1,6 +1,9 @@
 name: Python application
 
-on: [push]
+on:
+  push:
+    branches:
+      - main 
 
 jobs:
   build:
@@ -21,9 +24,10 @@ jobs:
         pip install -r requirements.txt
 
     - name: Set up environment
-      run: |
-        echo "SHODAN_API_KEY=${{ secrets.SHODAN_API_KEY }}" >> .env
+      run: echo "SHODAN_API_KEY=${{ secrets.SHODAN_API_KEY }}" > .env
+
+    - name: Show environment variables
+      run: cat .env
 
     - name: Run SecScanner
-      run: |
-        python secscanner.py
+      run: python secscanner.py
