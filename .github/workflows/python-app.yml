@@ -20,7 +20,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run SecScanner
+    - name: Set up environment
       run: |
         echo SHODAN_API_KEY=${{ secrets.SHODAN_API_KEY }} > .env
+
+    - name: Run SecScanner
+      run: |
         python secscanner.py
